@@ -1,0 +1,17 @@
+repositories {
+  maven { url 'file:repo' }
+}
+
+configurations {
+  bom
+}
+
+dependencies {
+  bom 'org.springframework:spring-framework-bom:5.2.2.BUILD-SNAPSHOT@pom'
+}
+
+task resolveBom {
+  doFirst {
+    println configurations.bom.resolvedConfiguration.files
+  }
+}
